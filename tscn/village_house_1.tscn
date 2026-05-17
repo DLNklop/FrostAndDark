@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dplhu1ogwt68b"]
+
+[ext_resource type="Texture2D" uid="uid://qfgqawlaeoe4" path="res://sprite_objects/village_house1_off.png" id="1_q3skr"]
+[ext_resource type="Texture2D" uid="uid://dl7yw50uugyxn" path="res://sprite_objects/village_house1.png" id="2_fg7yn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_je1qb"]
+atlas = ExtResource("1_q3skr")
+region = Rect2(0, 0, 168, 168)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jepd"]
+atlas = ExtResource("2_fg7yn")
+region = Rect2(0, 0, 168, 168)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wvn6d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_je1qb")
+}],
+"loop": false,
+"name": &"light_off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jepd")
+}],
+"loop": false,
+"name": &"light_on",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5cg3d"]
+size = Vector2(108, 64)
+
+[node name="Village_House_1" type="StaticBody2D" unique_id=750335231]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1132283751]
+position = Vector2(1, -46)
+sprite_frames = SubResource("SpriteFrames_wvn6d")
+animation = &"light_on"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1260325756]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_5cg3d")
