@@ -6,6 +6,17 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgowg"]
 size = Vector2(15, 4)
 
+[sub_resource type="Gradient" id="Gradient_vbhec"]
+colors = PackedColorArray(0.76506025, 0.76506025, 0.76506025, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6yl6i"]
+gradient = SubResource("Gradient_vbhec")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.49130434)
+fill_to = Vector2(0.8869565, 0.8304348)
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1176519371]
 script = ExtResource("1_h1phl")
 
@@ -18,3 +29,8 @@ position = Vector2(0, -14)
 texture = ExtResource("2_hgowg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=155715189]
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1526777754]
+position = Vector2(0, -12)
+energy = 0.25
+texture = SubResource("GradientTexture2D_6yl6i")
