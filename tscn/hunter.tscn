@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cs5xhc7qdkhyc"]
+
+[ext_resource type="Script" uid="uid://cwtmbi648xpvi" path="res://scripts/node_2d.gd" id="1_h1phl"]
+[ext_resource type="Texture2D" uid="uid://dvsaowiove2qe" path="res://sprite_objects/hunter_sprite.png" id="2_hgowg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgowg"]
+size = Vector2(15, 4)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1176519371]
+script = ExtResource("1_h1phl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=431158894]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_hgowg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=812218597]
+position = Vector2(0, -14)
+texture = ExtResource("2_hgowg")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=155715189]
