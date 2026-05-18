@@ -1,19 +1,13 @@
 [gd_scene format=3 uid="uid://cfohp3073d5i8"]
 
-[ext_resource type="Texture2D" uid="uid://cgwp28xajtlxl" path="res://sprite_objects/village_house2_off.png" id="1_nhifk"]
-[ext_resource type="Texture2D" uid="uid://despr48g38k0g" path="res://sprite_objects/village_house2.png" id="2_bwrg5"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhhnx"]
-size = Vector2(77, 75)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_slwys"]
-size = Vector2(52.5, 32)
+[ext_resource type="Texture2D" uid="uid://cgwp28xajtlxl" path="res://sprite_objects/village_house2_off.png" id="1_qj8dw"]
+[ext_resource type="Texture2D" uid="uid://despr48g38k0g" path="res://sprite_objects/village_house2.png" id="2_0q6ou"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_otjd3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_nhifk")
+"texture": ExtResource("1_qj8dw")
 }],
 "loop": true,
 "name": &"Light_OFF",
@@ -21,14 +15,25 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_bwrg5")
+"texture": ExtResource("2_0q6ou")
 }],
 "loop": true,
 "name": &"Light_ON",
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhhnx"]
+size = Vector2(77, 75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slwys"]
+size = Vector2(61.5, 34)
+
 [node name="StaticBody2D" type="StaticBody2D" unique_id=279335919]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2023577494]
+position = Vector2(13, -17)
+sprite_frames = SubResource("SpriteFrames_otjd3")
+animation = &"Light_ON"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1933112048]
 position = Vector2(-13, -4)
@@ -37,8 +42,3 @@ shape = SubResource("RectangleShape2D_dhhnx")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=944130121]
 position = Vector2(51.25, 3)
 shape = SubResource("RectangleShape2D_slwys")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2023577494]
-position = Vector2(13, -17)
-sprite_frames = SubResource("SpriteFrames_otjd3")
-animation = &"Light_ON"
