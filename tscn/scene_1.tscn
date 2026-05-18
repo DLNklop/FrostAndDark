@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bglpamya13cg" path="res://sprite_objects/snow_sprite.png" id="1_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://difqi4pquqk7u" path="res://tscn/static_tree_1.tscn" id="3_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://cs5xhc7qdkhyc" path="res://tscn/hunter.tscn" id="3_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://jbrljw3viqm7" path="res://tscn/bear_1.tscn" id="4_02smy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlwt5"]
 texture = ExtResource("1_fj7yv")
@@ -68,4 +69,6 @@ position = Vector2(-153, -14)
 position = Vector2(-36, -52)
 
 [node name="CharacterBody2D" parent="Objects" unique_id=1176519371 instance=ExtResource("3_tlwt5")]
-position = Vector2(-1, 1)
+
+[node name="Node2D" parent="Objects" unique_id=694933948 instance=ExtResource("4_02smy")]
+position = Vector2(-163, 104)

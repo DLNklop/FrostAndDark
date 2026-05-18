@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://jbrljw3viqm7"]
+
+[ext_resource type="Texture2D" uid="uid://bjxohsy41rdc2" path="res://sprite_objects/bear.png" id="1_lu8b8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sjh4g"]
+size = Vector2(20, 39)
+
+[node name="Node2D" type="Node2D" unique_id=694933948]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1253308903]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=362135770]
+position = Vector2(0, -11.5)
+shape = SubResource("RectangleShape2D_sjh4g")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1775276638]
+position = Vector2(0, -11)
+texture = ExtResource("1_lu8b8")
