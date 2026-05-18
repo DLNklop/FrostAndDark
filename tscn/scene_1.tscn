@@ -72,3 +72,7 @@ position = Vector2(-36, -52)
 
 [node name="Node2D" parent="Objects" unique_id=694933948 instance=ExtResource("4_02smy")]
 position = Vector2(-163, 104)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1179684080]
+color = Color(0, 0, 0, 1)
+blend_mode = 2
