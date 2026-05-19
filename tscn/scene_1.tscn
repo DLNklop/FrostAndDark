@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dplhu1ogwt68b" path="res://tscn/village_house_1.tscn" id="5_3wq72"]
 [ext_resource type="PackedScene" uid="uid://dxe3fj3gh0ke" path="res://tscn/hud.tscn" id="6_hud"]
 [ext_resource type="PackedScene" uid="uid://dnme1njj5htr0" path="res://tscn/fireplace.tscn" id="7_fireplace"]
+[ext_resource type="Script" uid="uid://8h6t5yo2equq" path="res://tscn/pause_menu.gd" id="8_uuc8c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlwt5"]
 texture = ExtResource("1_fj7yv")
@@ -97,3 +98,6 @@ color = Color(0, 0, 0, 1)
 blend_mode = 2
 
 [node name="HUD" parent="." unique_id=1579636402 instance=ExtResource("6_hud")]
+
+[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=119532441]
+script = ExtResource("8_uuc8c")

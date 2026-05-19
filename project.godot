@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Frost & Dark"
-run/main_scene="uid://bvm4e0pvu3xx0"
+run/main_scene="uid://bq36d4tk2ybvn"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 

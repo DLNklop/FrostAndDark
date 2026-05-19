@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bq36d4tk2ybvn"]
+
+[ext_resource type="Script" uid="uid://buwmiqmbc5rji" path="res://scripts/main_menu.gd" id="1_hpdlp"]
+
+[node name="main_menu" type="Control" unique_id=352156899]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hpdlp")
