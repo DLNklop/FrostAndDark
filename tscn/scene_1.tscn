@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://cs5xhc7qdkhyc" path="res://tscn/hunter.tscn" id="3_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://jbrljw3viqm7" path="res://tscn/bear_1.tscn" id="4_02smy"]
 [ext_resource type="PackedScene" uid="uid://dplhu1ogwt68b" path="res://tscn/village_house_1.tscn" id="5_3wq72"]
+[ext_resource type="PackedScene" uid="uid://dxe3fj3gh0ke" path="res://tscn/hud.tscn" id="6_hud"]
+[ext_resource type="PackedScene" uid="uid://dnme1njj5htr0" path="res://tscn/fireplace.tscn" id="7_fireplace"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlwt5"]
 texture = ExtResource("1_fj7yv")
@@ -70,14 +72,28 @@ position = Vector2(-153, -14)
 position = Vector2(-36, -52)
 
 [node name="CharacterBody2D" parent="Objects" unique_id=1176519371 instance=ExtResource("3_tlwt5")]
+position = Vector2(-145, -140)
 
 [node name="Node2D" parent="Objects" unique_id=694933948 instance=ExtResource("4_02smy")]
-position = Vector2(-163, 104)
+position = Vector2(-175, 111)
 
 [node name="Village_House_1" parent="Objects" unique_id=750335231 instance=ExtResource("5_3wq72")]
 position = Vector2(-145, -150)
 
+[node name="Fireplace" parent="Objects" unique_id=302414220 instance=ExtResource("7_fireplace")]
+position = Vector2(-254, -14)
+
+[node name="Fireplace2" parent="Objects" unique_id=765721410 instance=ExtResource("7_fireplace")]
+position = Vector2(-65, -25)
+
+[node name="Fireplace3" parent="Objects" unique_id=501160705 instance=ExtResource("7_fireplace")]
+position = Vector2(24, -129)
+
+[node name="Fireplace4" parent="Objects" unique_id=371696045 instance=ExtResource("7_fireplace")]
+position = Vector2(79, 47)
+
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1179684080]
-visible = false
 color = Color(0, 0, 0, 1)
 blend_mode = 2
+
+[node name="HUD" parent="." unique_id=1579636402 instance=ExtResource("6_hud")]

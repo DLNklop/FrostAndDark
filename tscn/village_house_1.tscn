@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://qfgqawlaeoe4" path="res://sprite_objects/village_house1_off.png" id="1_q3skr"]
 [ext_resource type="Texture2D" uid="uid://dl7yw50uugyxn" path="res://sprite_objects/village_house1.png" id="2_fg7yn"]
+[ext_resource type="Script" path="res://scripts/shelter.gd" id="3_shelter"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_je1qb"]
 atlas = ExtResource("1_q3skr")
@@ -32,6 +33,9 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5cg3d"]
 size = Vector2(108, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shelter"]
+size = Vector2(150, 100)
 
 [sub_resource type="Gradient" id="Gradient_q3skr"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -64,3 +68,10 @@ texture = SubResource("GradientTexture2D_fg7yn")
 position = Vector2(29, -19)
 energy = 0.25
 texture = SubResource("GradientTexture2D_fg7yn")
+
+[node name="ShelterArea" type="Area2D" parent="." unique_id=3000000001]
+position = Vector2(0, -32)
+script = ExtResource("3_shelter")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShelterArea" unique_id=3000000002]
+shape = SubResource("RectangleShape2D_shelter")

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cs5xhc7qdkhyc"]
 
-[ext_resource type="Script" uid="uid://cwtmbi648xpvi" path="res://scripts/node_2d.gd" id="1_h1phl"]
+[ext_resource type="Script" uid="uid://cwtmbi648xpvi" path="res://scripts/hunter.gd" id="1_h1phl"]
 [ext_resource type="Texture2D" uid="uid://dvsaowiove2qe" path="res://sprite_objects/hunter_sprite.png" id="2_hgowg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgowg"]
@@ -34,3 +34,7 @@ texture = ExtResource("2_hgowg")
 position = Vector2(0, -12)
 energy = 0.25
 texture = SubResource("GradientTexture2D_6yl6i")
+[node name="Area2D" type="Area2D" parent="." unique_id=9999999999]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=9999999998]
+shape = SubResource("RectangleShape2D_hgowg")

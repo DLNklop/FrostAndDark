@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://d15r3vvypi86d"]
+
+[ext_resource type="Script" uid="uid://ql061voulesn" path="res://scripts/interface.gd" id="1_epm7g"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1579636402]
+script = ExtResource("1_epm7g")
+
+[node name="Control" type="Control" parent="." unique_id=1801533107]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 560.0
+offset_top = 306.0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1360953553]
+layout_mode = 0
+offset_right = 49.0
+offset_bottom = 54.0
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/VBoxContainer" unique_id=636276511]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Control/VBoxContainer/Label" unique_id=1794296892]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 4.0
+offset_bottom = 25.0
+
+[node name="Label2" type="Label" parent="Control/VBoxContainer" unique_id=765002615]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Control/VBoxContainer/Label2" unique_id=866020578]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 4.0
+offset_bottom = 25.0
