@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvsaowiove2qe"
-path="res://.godot/imported/hunter_sprite.png-a0e49079f8ebd21f8935e3e99e98ad3a.ctex"
+uid="uid://cxprw7dptt7v8"
+path="res://.godot/imported/frame_002.png-04165b1de3172d05e15910f5f5b193e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprite_objects/hunter_sprite.png"
-dest_files=["res://.godot/imported/hunter_sprite.png-a0e49079f8ebd21f8935e3e99e98ad3a.ctex"]
+source_file="res://sprite_objects/hunter/walk/west/frame_002.png"
+dest_files=["res://.godot/imported/frame_002.png-04165b1de3172d05e15910f5f5b193e3.ctex"]
 
 [params]
 
