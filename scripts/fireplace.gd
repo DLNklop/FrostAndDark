@@ -14,12 +14,20 @@ func _ready() -> void:
 	print("🔥 Костер активирован!")
 
 func _on_area_entered(area: Area2D) -> void:
-	if area.name == "Area2D" or area.owner.name == "CharacterBody2D":
+	if area.name == "Area2D":
+		print("🔥 Охотник согревается у костра!")
+		return
+
+	if area.owner and area.owner.name == "CharacterBody2D":
 		print("🔥 Охотник согревается у костра!")
 
 func _on_area_exited(area: Area2D) -> void:
-	if area.name == "Area2D" or area.owner.name == "CharacterBody2D":
-		print("❄️ Охотник отошел от костра")
+	if area.name == "Area2D":
+		print("❄ Охотник отошел от костра")
+		return
+
+	if area.owner and area.owner.name == "CharacterBody2D":
+		print("❄ Охотник отошел от костра")
 
 func _process(delta: float) -> void:
 	# Обогреваем всех, кто в зоне - проверяем через родителя

@@ -273,6 +273,8 @@ func _space(size: int) -> Control:
 
 
 func _on_play_pressed() -> void:
+	Inventory.clear_inventory()
+
 	if menu_music:
 		menu_music.stop()
 
