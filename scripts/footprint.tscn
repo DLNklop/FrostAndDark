@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cquxkkwx4h32w"]
+
+[ext_resource type="Script" uid="uid://bhc0cqqemwhcr" path="res://footprint.gd" id="1_2qhyb"]
+
+[node name="Footprint" type="Node2D" unique_id=1089600470]
+script = ExtResource("1_2qhyb")

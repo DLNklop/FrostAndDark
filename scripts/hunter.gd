@@ -23,6 +23,39 @@ var is_moving: bool = false
 # === ЗВУКИ ===
 @onready var snow_footsteps: AudioStreamPlayer2D = $SnowFootsteps
 
+# === СЛЕДЫ НА СНЕГУ ===
+@export var footprint_scene: PackedScene
+
+# Расстояние между следами
+@export var footprint_distance: float = 16.0
+
+# Насколько левый/правый след смещается в сторону
+@export var footprint_side_offset_vertical: float = 3.5
+@export var footprint_side_offset_horizontal: float = 2.0
+
+# Небольшая рандомность, чтобы следы не были идеально ровными
+@export var footprint_random_offset: float = 0.8
+
+# Если true, в укрытии следов не будет
+@export var footprints_only_outside: bool = false
+
+# Если позиция игрока не у ног, можно сдвинуть след вниз
+@export var footprint_origin_offset_south: Vector2 = Vector2(0, 0)
+@export var footprint_origin_offset_north: Vector2 = Vector2(0, 4)
+@export var footprint_origin_offset_side: Vector2 = Vector2(0, -1)
+
+# Слой снега
+@export var snow_tilemap_path: NodePath
+
+# Узел Footprints, куда будут добавляться следы
+@export var footprints_parent_path: NodePath
+
+@onready var snow_tilemap: TileMapLayer = get_node_or_null(snow_tilemap_path) as TileMapLayer
+@onready var footprints_parent: Node2D = get_node_or_null(footprints_parent_path) as Node2D
+
+var last_footprint_position: Vector2
+var is_left_footprint: bool = true
+
 # === СИСТЕМА ХОЛОДА ===
 @export var freezing_rate: float = 2.0  # Как быстро остывает на улице
 @export var warming_rate: float = 15.0   # Как быстро греется в укрытии
@@ -43,6 +76,8 @@ signal player_frozen
 signal player_died
 
 func _ready() -> void:
+	last_footprint_position = _get_footprint_base_position()
+	
 	print("🐺 Охотник готов! Скорость: ", speed)
 	print("🐺 Охотник готов к выживанию!")
 	print("📍 Начальная позиция: ", position)
@@ -106,6 +141,9 @@ func _physics_process(delta: float) -> void:
 		_update_animation()
 
 	_update_footsteps_sound()
+	_update_footprints()
+	
+	
 	
 	# ОТЛАДКА: только если движемся
 	if abs(input_horizontal) > 0 or abs(input_vertical) > 0:
@@ -261,3 +299,92 @@ func _on_shelter_area_entered(area: Area2D) -> void:
 func _on_shelter_area_exited(area: Area2D) -> void:
 	if area.is_in_group("shelters"):
 		exit_shelter()
+
+# === СИСТЕМА СЛЕДОВ НА СНЕГУ ===
+func _update_footprints() -> void:
+	if not is_moving:
+		return
+	
+	if footprint_scene == null:
+		return
+	
+	if footprints_only_outside and is_in_shelter:
+		return
+	
+	var base_position: Vector2 = _get_footprint_base_position()
+	
+	if base_position.distance_to(last_footprint_position) < footprint_distance:
+		return
+	
+	if not _is_position_on_snow(base_position):
+		return
+	
+	_spawn_footprint(base_position)
+	last_footprint_position = base_position
+
+
+func _spawn_footprint(spawn_position: Vector2) -> void:
+	var footprint = footprint_scene.instantiate() as Node2D
+	
+	if footprint == null:
+		return
+	
+	var parent_for_footprints: Node = get_parent()
+	
+	if footprints_parent != null:
+		parent_for_footprints = footprints_parent
+	
+	parent_for_footprints.add_child(footprint)
+	footprint.global_position = spawn_position + _get_footprint_offset()
+	
+	if footprint.has_method("setup"):
+		footprint.setup(current_direction, is_left_footprint)
+	
+	is_left_footprint = not is_left_footprint
+
+
+func _get_footprint_base_position() -> Vector2:
+	match current_direction:
+		"south":
+			return global_position + footprint_origin_offset_south
+		"north":
+			return global_position + footprint_origin_offset_north
+		"east", "west":
+			return global_position + footprint_origin_offset_side
+	
+	return global_position
+
+
+func _get_footprint_offset() -> Vector2:
+	var side: float
+	
+	if is_left_footprint:
+		side = -1.0
+	else:
+		side = 1.0
+	
+	var offset := Vector2.ZERO
+	
+	match current_direction:
+		"north", "south":
+			# Когда идём вверх/вниз, следы дальше друг от друга по X
+			offset.x = side * footprint_side_offset_vertical
+		
+		"east", "west":
+			# Когда идём влево/вправо, оставляем ближе по Y
+			offset.y = side * footprint_side_offset_horizontal
+	
+	offset.x += randf_range(-footprint_random_offset, footprint_random_offset)
+	offset.y += randf_range(-footprint_random_offset, footprint_random_offset)
+	
+	return offset
+
+
+func _is_position_on_snow(world_position: Vector2) -> bool:
+	if snow_tilemap == null:
+		return false
+	
+	var local_position: Vector2 = snow_tilemap.to_local(world_position)
+	var cell_position: Vector2i = snow_tilemap.local_to_map(local_position)
+	
+	return snow_tilemap.get_cell_source_id(cell_position) != -1
