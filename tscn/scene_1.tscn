@@ -28,7 +28,9 @@ sources/0 = SubResource("TileSetAtlasSource_tlwt5")
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(500, 0, 0)
+initial_velocity_max = 315.83
 gravity = Vector3(-400, 500, 0)
+scale_max = 1.5
 color = Color(0.7919991, 0.79199916, 0.7919991, 1)
 
 [sub_resource type="Gradient" id="Gradient_l785s"]
@@ -147,27 +149,33 @@ color = Color(0, 0, 0, 1)
 energy = 0.4
 blend_mode = 2
 
-[node name="HUD" parent="." unique_id=1579636402 instance=ExtResource("6_hud")]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=203569292]
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="HUD" unique_id=1807797954]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasLayer" unique_id=1807797954]
 position = Vector2(651, -226)
 amount = 800
 lifetime = 1.66
 visibility_rect = Rect2(-500, -100, 1000, 1000)
 process_material = SubResource("ParticleProcessMaterial_l785s")
 
-[node name="PointLight2D" type="PointLight2D" parent="HUD" unique_id=907432199]
+[node name="PointLight2D" type="PointLight2D" parent="CanvasLayer" unique_id=907432199]
 position = Vector2(320, 167)
 blend_mode = 1
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_l785s")
 
-[node name="PointLight2D2" type="PointLight2D" parent="HUD" unique_id=741965058]
+[node name="PointLight2D2" type="PointLight2D" parent="CanvasLayer" unique_id=741965058]
 position = Vector2(320, 180)
 blend_mode = 1
 range_layer_min = 1
 range_layer_max = 1
 texture = SubResource("GradientTexture2D_n4332")
+
+[node name="HUD" parent="." unique_id=1579636402 instance=ExtResource("6_hud")]
+layer = 2
+
+[node name="CanvasModulate" type="CanvasModulate" parent="HUD" unique_id=473853691]
+color = Color(0, 0, 0, 1)
 
 [node name="PauseMenu" type="CanvasLayer" parent="." unique_id=119532441]
 layer = 0
