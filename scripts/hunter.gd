@@ -10,14 +10,18 @@ var health: float = 100.0
 var warmth: float = 100.0
 var sanity: float = 100.0
 
+
 # === ДВИЖЕНИЕ ===
-@export var speed: float = 200.0
+@export var speed: float = 140.0
 var is_in_shelter: bool = true  # Начинаем в укрытии
 
 # === АНИМАЦИИ ===
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 var current_direction: String = "south"  # По умолчанию смотрим на юг
 var is_moving: bool = false
+
+# === ЗВУКИ ===
+@onready var snow_footsteps: AudioStreamPlayer2D = $SnowFootsteps
 
 # === СИСТЕМА ХОЛОДА ===
 @export var freezing_rate: float = 2.0  # Как быстро остывает на улице
@@ -100,6 +104,8 @@ func _physics_process(delta: float) -> void:
 	# 3. ОБНОВЛЕНИЕ АНИМАЦИИ
 	if is_moving or was_moving:
 		_update_animation()
+
+	_update_footsteps_sound()
 	
 	# ОТЛАДКА: только если движемся
 	if abs(input_horizontal) > 0 or abs(input_vertical) > 0:
@@ -133,6 +139,17 @@ func _update_animation() -> void:
 			# print("🎬 Анимация: ", animation_name)
 	else:
 		print("⚠️ Анимация не найдена: ", animation_name)
+
+func _update_footsteps_sound() -> void:
+	if snow_footsteps == null:
+		return
+	
+	if is_moving:
+		if not snow_footsteps.playing:
+			snow_footsteps.play()
+	else:
+		if snow_footsteps.playing:
+			snow_footsteps.stop()
 
 func _process_cold(delta: float) -> void:
 	if init_frames % 30 == 0:  # Выводим каждую секунду

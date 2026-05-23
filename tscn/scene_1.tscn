@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://difqi4pquqk7u" path="res://tscn/static_tree_1.tscn" id="3_aqk2v"]
 [ext_resource type="PackedScene" uid="uid://cs5xhc7qdkhyc" path="res://tscn/hunter.tscn" id="3_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://jbrljw3viqm7" path="res://tscn/bear_1.tscn" id="4_02smy"]
+[ext_resource type="AudioStream" uid="uid://b756p1hndwr5q" path="res://audio/zvuk-snega_001 (mp3cut.net).mp3" id="4_ok673"]
 [ext_resource type="PackedScene" uid="uid://dplhu1ogwt68b" path="res://tscn/village_house_1.tscn" id="5_3wq72"]
 [ext_resource type="PackedScene" uid="uid://dxe3fj3gh0ke" path="res://tscn/hud.tscn" id="6_hud"]
 [ext_resource type="PackedScene" uid="uid://dnme1njj5htr0" path="res://tscn/fireplace.tscn" id="7_fireplace"]
@@ -11,6 +12,7 @@
 [ext_resource type="Script" uid="uid://brkgy7xwd72hn" path="res://scripts/inventory_ui.gd" id="9_ehaqy"]
 [ext_resource type="Script" uid="uid://bgh8vs0p7ge0v" path="res://scripts/item_pickup.gd" id="9_ry4o7"]
 [ext_resource type="Texture2D" uid="uid://dyyht8iolkhns" path="res://sprite_objects/testbranch.png" id="11_3jp62"]
+[ext_resource type="AudioStream" uid="uid://kqp4cm13vc6g" path="res://audio/blizzard.mp3" id="13_l785s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlwt5"]
 texture = ExtResource("1_fj7yv")
@@ -82,6 +84,11 @@ position = Vector2(-36, -52)
 [node name="CharacterBody2D" parent="Objects" unique_id=1176519371 groups=["player"] instance=ExtResource("3_tlwt5")]
 position = Vector2(-145, -140)
 
+[node name="SnowFootsteps" type="AudioStreamPlayer2D" parent="Objects/CharacterBody2D" unique_id=1921661368]
+stream = ExtResource("4_ok673")
+volume_db = -9.96
+pitch_scale = 1.44
+
 [node name="Node2D" parent="Objects" unique_id=694933948 instance=ExtResource("4_02smy")]
 position = Vector2(-175, 111)
 
@@ -101,7 +108,6 @@ position = Vector2(24, -129)
 position = Vector2(79, 47)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1179684080]
-visible = false
 color = Color(0, 0, 0, 1)
 blend_mode = 2
 
@@ -122,3 +128,8 @@ texture = ExtResource("11_3jp62")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DryBranch" unique_id=1336477007]
 shape = SubResource("CircleShape2D_uuc8c")
+
+[node name="BlizzardAmbience" type="AudioStreamPlayer2D" parent="." unique_id=1341150175]
+stream = ExtResource("13_l785s")
+volume_db = -16.052
+autoplay = true
