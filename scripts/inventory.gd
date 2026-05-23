@@ -1,7 +1,7 @@
 extends Node
 
 signal inventory_changed
-
+var inventory_ui_open: bool = false
 var items: Dictionary = {}
 
 

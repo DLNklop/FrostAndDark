@@ -24,9 +24,11 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
 		if event.keycode == KEY_I:
 			_toggle_inventory()
+			get_viewport().set_input_as_handled()
+
 		elif event.keycode == KEY_ESCAPE and is_open:
 			_close_inventory()
-
+			get_viewport().set_input_as_handled()
 
 func _make_inventory_ui() -> void:
 	overlay = ColorRect.new()
@@ -115,12 +117,14 @@ func _toggle_inventory() -> void:
 
 func _open_inventory() -> void:
 	is_open = true
+	Inventory.inventory_ui_open = true
 	overlay.visible = true
 	_update_inventory()
 
 
 func _close_inventory() -> void:
 	is_open = false
+	Inventory.inventory_ui_open = false
 	overlay.visible = false
 
 

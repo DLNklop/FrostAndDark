@@ -29,13 +29,15 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
 		if event.pressed and not event.echo and event.keycode == KEY_ESCAPE:
+			if Inventory.inventory_ui_open:
+				return
+
 			if settings_center.visible:
 				_show_pause_menu()
 			elif pause_menu_open:
 				_resume_game()
 			else:
 				_pause_game()
-
 
 func _make_overlay() -> void:
 	overlay = ColorRect.new()
