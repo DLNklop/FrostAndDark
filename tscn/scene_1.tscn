@@ -174,9 +174,6 @@ texture = SubResource("GradientTexture2D_n4332")
 [node name="HUD" parent="." unique_id=1579636402 instance=ExtResource("6_hud")]
 layer = 2
 
-[node name="CanvasModulate" type="CanvasModulate" parent="HUD" unique_id=473853691]
-color = Color(0, 0, 0, 1)
-
 [node name="PauseMenu" type="CanvasLayer" parent="." unique_id=119532441]
 layer = 0
 script = ExtResource("8_uuc8c")

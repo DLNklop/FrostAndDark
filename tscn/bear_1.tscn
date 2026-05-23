@@ -6,6 +6,7 @@
 size = Vector2(20, 39)
 
 [node name="Node2D" type="Node2D" unique_id=694933948]
+z_index = 3
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1253308903]
 
