@@ -14,6 +14,11 @@ var sanity: float = 100.0
 @export var speed: float = 200.0
 var is_in_shelter: bool = true  # Начинаем в укрытии
 
+# === АНИМАЦИИ ===
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+var current_direction: String = "south"  # По умолчанию смотрим на юг
+var is_moving: bool = false
+
 # === СИСТЕМА ХОЛОДА ===
 @export var freezing_rate: float = 2.0  # Как быстро остывает на улице
 @export var warming_rate: float = 15.0   # Как быстро греется в укрытии
@@ -51,6 +56,7 @@ func _ready() -> void:
 			print("  - Укрытие на расстоянии: ", distance)
 	
 	_update_ui()
+	_update_animation()  # Устанавливаем начальную анимацию
 
 func _physics_process(delta: float) -> void:
 	# 1. ОБРАБОТКА ВВОДА (WASD или стрелки)
@@ -58,14 +64,32 @@ func _physics_process(delta: float) -> void:
 	var input_horizontal = Input.get_axis("ui_left", "ui_right")
 	var input_vertical = Input.get_axis("ui_up", "ui_down")
 	
+	var was_moving = is_moving
+	is_moving = false
+	
 	# Приоритет: горизонтальное движение важнее вертикального
 	# Это предотвращает диагональное движение
 	if abs(input_horizontal) > 0:
 		velocity.x = input_horizontal * speed
 		velocity.y = 0
+		is_moving = true
+		
+		# Определяем направление
+		if input_horizontal > 0:
+			current_direction = "east"
+		else:
+			current_direction = "west"
+			
 	elif abs(input_vertical) > 0:
 		velocity.x = 0
 		velocity.y = input_vertical * speed
+		is_moving = true
+		
+		# Определяем направление
+		if input_vertical > 0:
+			current_direction = "south"
+		else:
+			current_direction = "north"
 	else:
 		velocity.x = 0
 		velocity.y = 0
@@ -73,20 +97,42 @@ func _physics_process(delta: float) -> void:
 	# 2. ДВИЖЕНИЕ
 	move_and_slide()
 	
+	# 3. ОБНОВЛЕНИЕ АНИМАЦИИ
+	if is_moving or was_moving:
+		_update_animation()
+	
 	# ОТЛАДКА: только если движемся
 	if abs(input_horizontal) > 0 or abs(input_vertical) > 0:
 		print("Позиция: ", position, " Ввод: ", Vector2(input_horizontal, input_vertical))
 	
-	# 3. ПРОВЕРКА УКРЫТИЯ (после первых 10 кадров)
+	# 4. ПРОВЕРКА УКРЫТИЯ (после первых 10 кадров)
 	init_frames += 1
 	if init_frames > 10:
 		_check_shelter_status()
 	
-	# 4. СИСТЕМА ХОЛОДА
+	# 5. СИСТЕМА ХОЛОДА
 	_process_cold(delta)
 	
-	# 5. ПРОВЕРКА СОСТОЯНИЯ
+	# 6. ПРОВЕРКА СОСТОЯНИЯ
 	_check_survival_status()
+
+func _update_animation() -> void:
+	if animated_sprite == null:
+		return
+	
+	var animation_name: String
+	if is_moving:
+		animation_name = "walk_" + current_direction
+	else:
+		animation_name = "idle_" + current_direction
+	
+	# Проверяем существует ли анимация
+	if animated_sprite.sprite_frames.has_animation(animation_name):
+		if animated_sprite.animation != animation_name:
+			animated_sprite.play(animation_name)
+			# print("🎬 Анимация: ", animation_name)
+	else:
+		print("⚠️ Анимация не найдена: ", animation_name)
 
 func _process_cold(delta: float) -> void:
 	if init_frames % 30 == 0:  # Выводим каждую секунду
@@ -157,6 +203,7 @@ func _update_ui() -> void:
 		print("🧠 Рассудок: %.1f / %.1f" % [sanity, max_sanity])
 		print(" Инвентарь: %d / %d" % [inventory.size(), max_inventory_slots])
 		print("🏠 В укрытии: ", "ДА" if is_in_shelter else "НЕТ")
+		print("🎬 Анимация: ", current_direction, " (движение: ", is_moving, ")" if is_moving else " (покой)")
 		print("===========================")
 
 # === ФУНКЦИИ ДЛЯ ИНВЕНТАРЯ ===

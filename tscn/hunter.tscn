@@ -80,6 +80,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("24_3x7f0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_236j1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_lwpph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_6lrr8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_aqy33")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_tiad4")
+}],
+"loop": true,
+"name": &"walk_east",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("6_5scjv")
 }, {
 "duration": 1.0,
@@ -146,29 +169,6 @@ animations = [{
 "loop": true,
 "name": &"walk_west",
 "speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("24_3x7f0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_236j1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26_lwpph")
-}, {
-"duration": 1.0,
-"texture": ExtResource("27_6lrr8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("28_aqy33")
-}, {
-"duration": 1.0,
-"texture": ExtResource("29_tiad4")
-}],
-"loop": true,
-"name": &"wlak_east",
-"speed": 8.0
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1176519371]
@@ -193,5 +193,5 @@ shape = SubResource("RectangleShape2D_hgowg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1104876702]
 position = Vector2(0, -14)
 sprite_frames = SubResource("SpriteFrames_gd1h0")
-animation = &"idle_south"
+animation = &"walk_east"
 autoplay = "idle_south"
