@@ -181,6 +181,7 @@ shape = SubResource("RectangleShape2D_hgowg")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=155715189]
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1526777754]
+visible = false
 position = Vector2(0, -10)
 energy = 0.25
 texture = SubResource("GradientTexture2D_6yl6i")
@@ -193,5 +194,5 @@ shape = SubResource("RectangleShape2D_hgowg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1104876702]
 position = Vector2(0, -14)
 sprite_frames = SubResource("SpriteFrames_gd1h0")
-animation = &"walk_east"
+animation = &"walk_north"
 autoplay = "idle_south"
