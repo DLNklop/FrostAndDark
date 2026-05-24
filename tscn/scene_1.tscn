@@ -160,6 +160,7 @@ process_material = SubResource("ParticleProcessMaterial_l785s")
 
 [node name="PointLight2D" type="PointLight2D" parent="CanvasLayer" unique_id=907432199]
 position = Vector2(320, 167)
+color = Color(1, 1, 0.91764706, 1)
 blend_mode = 1
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_l785s")
