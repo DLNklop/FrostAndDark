@@ -33,23 +33,23 @@ gravity = Vector3(-400, 500, 0)
 scale_max = 1.5
 color = Color(0.7919991, 0.79199916, 0.7919991, 1)
 
-[sub_resource type="Gradient" id="Gradient_l785s"]
+[sub_resource type="Gradient" id="Gradient_xwki7"]
 offsets = PackedFloat32Array(0, 0.11746032, 0.43809524)
 colors = PackedColorArray(0, 0, 0, 1, 0.39166668, 0.39166668, 0.39166668, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_l785s"]
-gradient = SubResource("Gradient_l785s")
+gradient = SubResource("Gradient_xwki7")
 width = 640
 height = 640
 fill = 1
 fill_from = Vector2(0.5013193, 0.49721485)
 
-[sub_resource type="Gradient" id="Gradient_xwki7"]
+[sub_resource type="Gradient" id="Gradient_n4332"]
 offsets = PackedFloat32Array(0, 0.75238097, 0.9936508, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0.943415, 0.943415, 0.943415, 1, 0.9777778, 0.9777778, 0.9777778, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_n4332"]
-gradient = SubResource("Gradient_xwki7")
+gradient = SubResource("Gradient_n4332")
 width = 640
 height = 360
 fill = 1

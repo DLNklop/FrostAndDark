@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://bwgqgm6yrgnxh"]
+
+[ext_resource type="Texture2D" uid="uid://c4xin7s57og6y" path="res://Prolog/sprite_objects/фон.png" id="1_6fvaj"]
+[ext_resource type="Script" uid="uid://d173yxf08jclu" path="res://Prolog/scripts/PrologueManager.gd" id="1_d4j14"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dkypl"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(500, 0, 0)
+initial_velocity_max = 315.83
+gravity = Vector3(-400, 500, 0)
+scale_max = 1.5
+color = Color(0.7919991, 0.79199916, 0.7919991, 1)
+
+[sub_resource type="Gradient" id="Gradient_l785s"]
+offsets = PackedFloat32Array(0, 0.208, 0.392, 0.488, 0.768, 0.784, 0.848, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.46965814, 0.46965814, 0.46965814, 1, 0.39166668, 0.39166668, 0.39166668, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6fvaj"]
+gradient = SubResource("Gradient_l785s")
+width = 640
+height = 640
+fill = 1
+fill_from = Vector2(0.5013193, 0.49721488)
+
+[sub_resource type="Gradient" id="Gradient_xwki7"]
+offsets = PackedFloat32Array(0, 0.75238097, 0.9936508, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.943415, 0.943415, 0.943415, 1, 0.9777778, 0.9777778, 0.9777778, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d4j14"]
+gradient = SubResource("Gradient_xwki7")
+width = 640
+height = 360
+fill = 1
+fill_from = Vector2(0.4871795, 0.4957265)
+
+[node name="Control" type="Control" unique_id=607624621]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d4j14")
+
+[node name="Control" type="Control" parent="." unique_id=446964438]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="Control" unique_id=1823857346]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6fvaj")
+expand_mode = 1
+
+[node name="MainBox" type="Panel" parent="Control" unique_id=259613869]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147
+anchor_top = 0.224
+anchor_right = 0.69100004
+anchor_bottom = 0.53900003
+offset_left = 60.92
+offset_top = 26.36
+offset_right = -0.24002075
+offset_bottom = 0.95999146
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MainBox" unique_id=1932423921]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.72156864, 0.7882353, 0.8509804, 1)
+bbcode_enabled = true
+text = "Метель усиливается. Холод пробирает до костей. Куда пойти?"
+
+[node name="ChoicesBox" type="VBoxContainer" parent="Control" unique_id=250434334]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 247.0
+offset_right = 642.0
+offset_bottom = 360.0
+theme_override_constants/separation = 10
+
+[node name="Button" type="Button" parent="Control/ChoicesBox" unique_id=2092593180]
+layout_mode = 2
+text = "\"Вырыть яму в сугробе\""
+
+[node name="Button2" type="Button" parent="Control/ChoicesBox" unique_id=902784751]
+layout_mode = 2
+text = "\"Вырыть яму в сугробе\""
+
+[node name="Button3" type="Button" parent="Control/ChoicesBox" unique_id=478979043]
+layout_mode = 2
+text = "\"Вырыть яму в сугробе\""
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=210272921]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasLayer" unique_id=1642048384]
+position = Vector2(651, -226)
+amount = 800
+lifetime = 1.66
+visibility_rect = Rect2(-500, -100, 1000, 1000)
+process_material = SubResource("ParticleProcessMaterial_dkypl")
+
+[node name="PointLight2D" type="PointLight2D" parent="CanvasLayer" unique_id=1939660558]
+position = Vector2(312, 183.50003)
+scale = Vector2(2.3782465, 1.6132306)
+blend_mode = 1
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_6fvaj")
+texture_scale = 0.77
+
+[node name="PointLight2D2" type="PointLight2D" parent="CanvasLayer" unique_id=1031640467]
+position = Vector2(320, 180)
+blend_mode = 1
+range_layer_min = 1
+range_layer_max = 1
+texture = SubResource("GradientTexture2D_d4j14")
