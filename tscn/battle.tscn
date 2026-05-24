@@ -226,8 +226,8 @@ zoom = Vector2(2, 2)
 
 [node name="enemy" type="Sprite2D" parent="." unique_id=547394027]
 position = Vector2(160, 96)
-texture = ExtResource("3_0qxp1")
+texture = ExtResource("4_x6mew")
 
 [node name="player" type="Sprite2D" parent="." unique_id=1063560266]
 position = Vector2(160, 35)
-texture = ExtResource("4_x6mew")
+texture = ExtResource("3_0qxp1")
