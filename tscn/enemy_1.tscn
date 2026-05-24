@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://2vmat38kjij3"]
+
+[ext_resource type="Texture2D" uid="uid://mi2daj5cr5hh" path="res://sprite_objects/south.png" id="1_mtg5r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mu3m1"]
+size = Vector2(14, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdvd1"]
+atlas = ExtResource("1_mtg5r")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u6hx6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdvd1")
+}],
+"loop": true,
+"name": &"idle_south",
+"speed": 6.0
+}]
+
+[node name="enemy_1" type="CharacterBody2D" unique_id=1610608409]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=140798166]
+shape = SubResource("RectangleShape2D_mu3m1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=232767398]
+position = Vector2(0, -17)
+sprite_frames = SubResource("SpriteFrames_u6hx6")
+animation = &"idle_south"
+autoplay = "idle_south"

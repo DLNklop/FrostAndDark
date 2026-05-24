@@ -15,14 +15,14 @@
 [ext_resource type="Texture2D" uid="uid://dyyht8iolkhns" path="res://sprite_objects/testbranch.png" id="11_3jp62"]
 [ext_resource type="AudioStream" uid="uid://kqp4cm13vc6g" path="res://audio/blizzard.mp3" id="13_l785s"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlwt5"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xwki7"]
 texture = ExtResource("1_fj7yv")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_aqk2v"]
 tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_tlwt5")
+sources/0 = SubResource("TileSetAtlasSource_xwki7")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l785s"]
 particle_flag_disable_z = true
