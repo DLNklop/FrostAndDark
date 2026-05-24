@@ -1,6 +1,9 @@
 [gd_scene format=4 uid="uid://cohkjbqrqjfxg"]
 
 [ext_resource type="Texture2D" uid="uid://bglpamya13cg" path="res://sprite_objects/snow_sprite.png" id="1_dtlnf"]
+[ext_resource type="PackedScene" uid="uid://difqi4pquqk7u" path="res://tscn/static_tree_1.tscn" id="2_ly05e"]
+[ext_resource type="Texture2D" uid="uid://drgllm3iln48p" path="res://sprite_objects/hunter/idle/north.png" id="3_0qxp1"]
+[ext_resource type="Texture2D" uid="uid://mi2daj5cr5hh" path="res://sprite_objects/south.png" id="4_x6mew"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kap0m"]
 texture = ExtResource("1_dtlnf")
@@ -16,5 +19,170 @@ sources/0 = SubResource("TileSetAtlasSource_kap0m")
 [node name="UI" type="CanvasLayer" parent="." unique_id=1666364288]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2025487575]
-tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAEAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAAAAAAAAABAAUAAAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAACAAQAAAAAAAAAAAACAAUAAAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAADAAMAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAAAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAMAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAAAAAAAAAAAAAAHAAEAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAMAAAAAAAAAAAAHAAQAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAAJAAAAAAAAAAAAAAAJAAEAAAAAAAAAAAAJAAIAAAAAAAAAAAAJAAMAAAAAAAAAAAAJAAYAAAAAAAAAAAAKAAAAAAAAAAAAAAAKAAEAAAAAAAAAAAAKAAIAAAAAAAAAAAAKAAMAAAAAAAAAAAAKAAYAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAoAAAAAAAAAAAABAAcAAAAAAAAAAAABAAgAAAAAAAAAAAABAAkAAAAAAAAAAAABAAoAAAAAAAAAAAACAAcAAAAAAAAAAAACAAgAAAAAAAAAAAACAAkAAAAAAAAAAAACAAoAAAAAAAAAAAADAAcAAAAAAAAAAAADAAgAAAAAAAAAAAADAAkAAAAAAAAAAAADAAoAAAAAAAAAAAAEAAcAAAAAAAAAAAAEAAgAAAAAAAAAAAAEAAkAAAAAAAAAAAAEAAoAAAAAAAAAAAAFAAcAAAAAAAAAAAAFAAgAAAAAAAAAAAAFAAkAAAAAAAAAAAAFAAoAAAAAAAAAAAAGAAcAAAAAAAAAAAAGAAgAAAAAAAAAAAAGAAkAAAAAAAAAAAAGAAoAAAAAAAAAAAAHAAcAAAAAAAAAAAAHAAgAAAAAAAAAAAAHAAkAAAAAAAAAAAAHAAoAAAAAAAAAAAAIAAcAAAAAAAAAAAAIAAgAAAAAAAAAAAAIAAkAAAAAAAAAAAAIAAoAAAAAAAAAAAAJAAcAAAAAAAAAAAAJAAgAAAAAAAAAAAAJAAkAAAAAAAAAAAAJAAoAAAAAAAAAAAAKAAcAAAAAAAAAAAAKAAgAAAAAAAAAAAAKAAkAAAAAAAAAAAAKAAoAAAAAAAAAAAALAAAAAAAAAAAAAAALAAEAAAAAAAAAAAALAAIAAAAAAAAAAAALAAMAAAAAAAAAAAALAAYAAAAAAAAAAAALAAcAAAAAAAAAAAALAAgAAAAAAAAAAAALAAkAAAAAAAAAAAALAAoAAAAAAAAAAAAMAAAAAAAAAAAAAAAMAAEAAAAAAAAAAAAMAAIAAAAAAAAAAAAMAAMAAAAAAAAAAAAMAAYAAAAAAAAAAAAMAAcAAAAAAAAAAAAMAAgAAAAAAAAAAAAMAAkAAAAAAAAAAAAMAAoAAAAAAAAAAAANAAAAAAAAAAAAAAANAAEAAAAAAAAAAAANAAIAAAAAAAAAAAANAAMAAAAAAAAAAAANAAYAAAAAAAAAAAANAAcAAAAAAAAAAAANAAgAAAAAAAAAAAANAAkAAAAAAAAAAAANAAoAAAAAAAAAAAAOAAAAAAAAAAAAAAAOAAEAAAAAAAAAAAAOAAIAAAAAAAAAAAAOAAQAAAAAAAAAAAAOAAYAAAAAAAAAAAAOAAcAAAAAAAAAAAAOAAgAAAAAAAAAAAAOAAkAAAAAAAAAAAAOAAoAAAAAAAAAAAAPAAAAAAAAAAAAAAAPAAEAAAAAAAAAAAAPAAIAAAAAAAAAAAAPAAQAAAAAAAAAAAAPAAYAAAAAAAAAAAAPAAcAAAAAAAAAAAAPAAgAAAAAAAAAAAAPAAkAAAAAAAAAAAAPAAoAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAEAAAAAAAAAAAAQAAIAAAAAAAAAAAAQAAQAAAAAAAAAAAAQAAYAAAAAAAAAAAAQAAcAAAAAAAAAAAAQAAgAAAAAAAAAAAAQAAkAAAAAAAAAAAAQAAoAAAAAAAAAAAARAAAAAAAAAAAAAAARAAEAAAAAAAAAAAARAAIAAAAAAAAAAAARAAQAAAAAAAAAAAARAAYAAAAAAAAAAAARAAcAAAAAAAAAAAARAAgAAAAAAAAAAAARAAkAAAAAAAAAAAARAAoAAAAAAAAAAAASAAAAAAAAAAAAAAASAAEAAAAAAAAAAAASAAIAAAAAAAAAAAASAAQAAAAAAAAAAAASAAYAAAAAAAAAAAASAAcAAAAAAAAAAAASAAgAAAAAAAAAAAASAAkAAAAAAAAAAAASAAoAAAAAAAAAAAATAAAAAAAAAAAAAAATAAEAAAAAAAAAAAATAAIAAAAAAAAAAAATAAUAAAAAAAAAAAATAAYAAAAAAAAAAAATAAcAAAAAAAAAAAATAAgAAAAAAAAAAAATAAkAAAAAAAAAAAATAAoAAAAAAAAAAAAAAAYAAAAAAAAAAAABAAYAAAAAAAAAAAACAAYAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAHAAYAAAAAAAAAAAAIAAYAAAAAAAAAAAAJAAUAAAAAAAAAAAAKAAUAAAAAAAAAAAALAAUAAAAAAAAAAAAMAAUAAAAAAAAAAAANAAUAAAAAAAAAAAAOAAUAAAAAAAAAAAAPAAUAAAAAAAAAAAAQAAUAAAAAAAAAAAARAAUAAAAAAAAAAAASAAUAAAAAAAAAAAATAAQAAAAAAAAAAAATAAMAAAAAAAAAAAASAAMAAAAAAAAAAAARAAMAAAAAAAAAAAAQAAMAAAAAAAAAAAAPAAMAAAAAAAAAAAAOAAMAAAAAAAAAAAANAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAALAAQAAAAAAAAAAAAKAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAAHAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAsAAAAAAAAAAAABAAsAAAAAAAAAAAACAAsAAAAAAAAAAAADAAsAAAAAAAAAAAAEAAsAAAAAAAAAAAAFAAsAAAAAAAAAAAAGAAsAAAAAAAAAAAAHAAsAAAAAAAAAAAAIAAsAAAAAAAAAAAAJAAsAAAAAAAAAAAAKAAsAAAAAAAAAAAALAAsAAAAAAAAAAAAMAAsAAAAAAAAAAAANAAsAAAAAAAAAAAAOAAsAAAAAAAAAAAAPAAsAAAAAAAAAAAAQAAsAAAAAAAAAAAARAAsAAAAAAAAAAAASAAsAAAAAAAAAAAATAAsAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAABAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAAAAAAAAABAAUAAAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAACAAQAAAAAAAAAAAACAAUAAAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAADAAMAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAAAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAMAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAAAAAAAAAAAAAAHAAEAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAMAAAAAAAAAAAAHAAQAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAAJAAAAAAAAAAAAAAAJAAEAAAAAAAAAAAAJAAIAAAAAAAAAAAAJAAMAAAAAAAAAAAAJAAUAAAAAAAAAAAAJAAQAAAAAAAAAAAAIAAUAAAAAAAAAAAAHAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_ehsfv")
+
+[node name="Environment" type="Node2D" parent="." unique_id=1933449856]
+y_sort_enabled = true
+
+[node name="StaticBody2D" parent="Environment" unique_id=1191212950 instance=ExtResource("2_ly05e")]
+position = Vector2(11, 45)
+
+[node name="StaticBody2D2" parent="Environment" unique_id=1816858723 instance=ExtResource("2_ly05e")]
+position = Vector2(45, 199)
+
+[node name="StaticBody2D3" parent="Environment" unique_id=2071623909 instance=ExtResource("2_ly05e")]
+position = Vector2(1, 199)
+
+[node name="StaticBody2D4" parent="Environment" unique_id=469691502 instance=ExtResource("2_ly05e")]
+position = Vector2(61, 190)
+
+[node name="StaticBody2D5" parent="Environment" unique_id=1250917593 instance=ExtResource("2_ly05e")]
+position = Vector2(-4, 125)
+
+[node name="StaticBody2D6" parent="Environment" unique_id=466677422 instance=ExtResource("2_ly05e")]
+position = Vector2(23, 193)
+
+[node name="StaticBody2D7" parent="Environment" unique_id=1282857115 instance=ExtResource("2_ly05e")]
+position = Vector2(37, 159)
+
+[node name="StaticBody2D8" parent="Environment" unique_id=1015365626 instance=ExtResource("2_ly05e")]
+position = Vector2(0, 173)
+
+[node name="StaticBody2D9" parent="Environment" unique_id=1351884522 instance=ExtResource("2_ly05e")]
+position = Vector2(18, 28)
+
+[node name="StaticBody2D10" parent="Environment" unique_id=1178318051 instance=ExtResource("2_ly05e")]
+position = Vector2(40, 24)
+
+[node name="StaticBody2D11" parent="Environment" unique_id=2147263474 instance=ExtResource("2_ly05e")]
+position = Vector2(12, 151)
+
+[node name="StaticBody2D12" parent="Environment" unique_id=1233169178 instance=ExtResource("2_ly05e")]
+position = Vector2(39, 117)
+
+[node name="StaticBody2D13" parent="Environment" unique_id=1565868016 instance=ExtResource("2_ly05e")]
+position = Vector2(7, 110)
+
+[node name="StaticBody2D14" parent="Environment" unique_id=1603154047 instance=ExtResource("2_ly05e")]
+position = Vector2(46, 84)
+
+[node name="StaticBody2D15" parent="Environment" unique_id=1044275632 instance=ExtResource("2_ly05e")]
+position = Vector2(28, 97)
+
+[node name="StaticBody2D16" parent="Environment" unique_id=1132559513 instance=ExtResource("2_ly05e")]
+position = Vector2(1, 79)
+
+[node name="StaticBody2D17" parent="Environment" unique_id=1603617813 instance=ExtResource("2_ly05e")]
+position = Vector2(35, 66)
+
+[node name="StaticBody2D18" parent="Environment" unique_id=453957609 instance=ExtResource("2_ly05e")]
+position = Vector2(317, 165)
+
+[node name="StaticBody2D19" parent="Environment" unique_id=135320224 instance=ExtResource("2_ly05e")]
+position = Vector2(54, 53)
+
+[node name="StaticBody2D20" parent="Environment" unique_id=496648529 instance=ExtResource("2_ly05e")]
+position = Vector2(38, 143)
+
+[node name="StaticBody2D21" parent="Environment" unique_id=1218934614 instance=ExtResource("2_ly05e")]
+position = Vector2(68, 23)
+
+[node name="StaticBody2D22" parent="Environment" unique_id=1797557408 instance=ExtResource("2_ly05e")]
+position = Vector2(319, 198)
+
+[node name="StaticBody2D23" parent="Environment" unique_id=1044306205 instance=ExtResource("2_ly05e")]
+position = Vector2(295, 194)
+
+[node name="StaticBody2D24" parent="Environment" unique_id=1729878608 instance=ExtResource("2_ly05e")]
+position = Vector2(270, 26)
+
+[node name="StaticBody2D25" parent="Environment" unique_id=276186 instance=ExtResource("2_ly05e")]
+position = Vector2(266, 74)
+
+[node name="StaticBody2D26" parent="Environment" unique_id=1981161696 instance=ExtResource("2_ly05e")]
+position = Vector2(266, 200)
+
+[node name="StaticBody2D27" parent="Environment" unique_id=747750946 instance=ExtResource("2_ly05e")]
+position = Vector2(289, 155)
+
+[node name="StaticBody2D28" parent="Environment" unique_id=850001616 instance=ExtResource("2_ly05e")]
+position = Vector2(269, 173)
+
+[node name="StaticBody2D29" parent="Environment" unique_id=637364990 instance=ExtResource("2_ly05e")]
+position = Vector2(321, 123)
+
+[node name="StaticBody2D30" parent="Environment" unique_id=884720918 instance=ExtResource("2_ly05e")]
+position = Vector2(300, 126)
+
+[node name="StaticBody2D31" parent="Environment" unique_id=1496001074 instance=ExtResource("2_ly05e")]
+position = Vector2(275, 137)
+
+[node name="StaticBody2D32" parent="Environment" unique_id=575956964 instance=ExtResource("2_ly05e")]
+position = Vector2(321, 82)
+
+[node name="StaticBody2D33" parent="Environment" unique_id=488893596 instance=ExtResource("2_ly05e")]
+position = Vector2(300, 96)
+
+[node name="StaticBody2D34" parent="Environment" unique_id=923746764 instance=ExtResource("2_ly05e")]
+position = Vector2(277, 103)
+
+[node name="StaticBody2D35" parent="Environment" unique_id=319670253 instance=ExtResource("2_ly05e")]
+position = Vector2(303, 35)
+
+[node name="StaticBody2D36" parent="Environment" unique_id=1416798611 instance=ExtResource("2_ly05e")]
+position = Vector2(261, 43)
+
+[node name="StaticBody2D37" parent="Environment" unique_id=241572236 instance=ExtResource("2_ly05e")]
+position = Vector2(249, 29)
+
+[node name="StaticBody2D38" parent="Environment" unique_id=1646529522 instance=ExtResource("2_ly05e")]
+position = Vector2(293, 66)
+
+[node name="StaticBody2D39" parent="Environment" unique_id=38692738 instance=ExtResource("2_ly05e")]
+position = Vector2(318, 57)
+
+[node name="StaticBody2D40" parent="Environment" unique_id=2058720900 instance=ExtResource("2_ly05e")]
+position = Vector2(297, 30)
+
+[node name="StaticBody2D41" parent="Environment" unique_id=34584826 instance=ExtResource("2_ly05e")]
+position = Vector2(63, 171)
+
+[node name="StaticBody2D42" parent="Environment" unique_id=1209027941 instance=ExtResource("2_ly05e")]
+position = Vector2(102, 207)
+
+[node name="StaticBody2D43" parent="Environment" unique_id=46024244 instance=ExtResource("2_ly05e")]
+position = Vector2(212, 207)
+
+[node name="StaticBody2D44" parent="Environment" unique_id=589288480 instance=ExtResource("2_ly05e")]
+position = Vector2(246, 47)
+
+[node name="StaticBody2D45" parent="Environment" unique_id=1370964798 instance=ExtResource("2_ly05e")]
+position = Vector2(257, 175)
+
+[node name="StaticBody2D46" parent="Environment" unique_id=897027762 instance=ExtResource("2_ly05e")]
+position = Vector2(90, 20)
+
+[node name="StaticBody2D47" parent="Environment" unique_id=1626179449 instance=ExtResource("2_ly05e")]
+position = Vector2(226, 24)
+
+[node name="StaticBody2D48" parent="Environment" unique_id=313595 instance=ExtResource("2_ly05e")]
+position = Vector2(64, 43)
+
+[node name="StaticBody2D49" parent="Environment" unique_id=879885431 instance=ExtResource("2_ly05e")]
+position = Vector2(238, 205)
+
+[node name="StaticBody2D50" parent="Environment" unique_id=1371296864 instance=ExtResource("2_ly05e")]
+position = Vector2(77, 200)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1006063638]
+position = Vector2(160, 90)
+zoom = Vector2(2, 2)
+
+[node name="enemy" type="Sprite2D" parent="." unique_id=547394027]
+position = Vector2(160, 96)
+texture = ExtResource("3_0qxp1")
+
+[node name="player" type="Sprite2D" parent="." unique_id=1063560266]
+position = Vector2(160, 35)
+texture = ExtResource("4_x6mew")
