@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c4xin7s57og6y" path="res://Prolog/sprite_objects/фон.png" id="1_6fvaj"]
 [ext_resource type="Script" uid="uid://d173yxf08jclu" path="res://Prolog/scripts/PrologueManager.gd" id="1_d4j14"]
+[ext_resource type="Script" uid="uid://8h6t5yo2equq" path="res://scripts/pause_menu.gd" id="3_pj23n"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dkypl"]
 particle_flag_disable_z = true
@@ -66,12 +67,12 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.147
 anchor_top = 0.224
-anchor_right = 0.69100004
-anchor_bottom = 0.53900003
-offset_left = 60.92
-offset_top = 26.36
-offset_right = -0.24002075
-offset_bottom = 0.95999146
+anchor_right = 0.81000006
+anchor_bottom = 0.61
+offset_left = 0.91999817
+offset_top = 0.3600006
+offset_right = -4.4000244
+offset_bottom = 1.3999939
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -89,22 +90,22 @@ text = "Метель усиливается. Холод пробирает до 
 [node name="ChoicesBox" type="VBoxContainer" parent="Control" unique_id=250434334]
 layout_mode = 0
 offset_left = 2.0
-offset_top = 247.0
+offset_top = 233.0
 offset_right = 642.0
-offset_bottom = 360.0
+offset_bottom = 356.0
 theme_override_constants/separation = 10
 
 [node name="Button" type="Button" parent="Control/ChoicesBox" unique_id=2092593180]
 layout_mode = 2
-text = "\"Вырыть яму в сугробе\""
+size_flags_horizontal = 4
 
 [node name="Button2" type="Button" parent="Control/ChoicesBox" unique_id=902784751]
 layout_mode = 2
-text = "\"Вырыть яму в сугробе\""
+size_flags_horizontal = 4
 
 [node name="Button3" type="Button" parent="Control/ChoicesBox" unique_id=478979043]
 layout_mode = 2
-text = "\"Вырыть яму в сугробе\""
+size_flags_horizontal = 4
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=210272921]
 
@@ -129,3 +130,7 @@ blend_mode = 1
 range_layer_min = 1
 range_layer_max = 1
 texture = SubResource("GradientTexture2D_d4j14")
+
+[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=1631290685]
+layer = 0
+script = ExtResource("3_pj23n")
