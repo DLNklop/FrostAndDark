@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://2vmat38kjij3"]
 
 [ext_resource type="Texture2D" uid="uid://mi2daj5cr5hh" path="res://sprite_objects/south.png" id="1_mtg5r"]
+[ext_resource type="Script" uid="uid://e4hutd08pdn0" path="res://scripts/enemy_1_AI.gd" id="1_mu3m1"]
+[ext_resource type="PackedScene" uid="uid://cquxkkwx4h32w" path="res://scripts/footprint.tscn" id="2_u6hx6"]
+[ext_resource type="AudioStream" uid="uid://xuj383bf6pih" path="res://audio/snowstepsoundenemy1.mp3" id="4_u6hx6"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mu3m1"]
-size = Vector2(14, 4)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtg5r"]
+size = Vector2(11, 5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gdvd1"]
 atlas = ExtResource("1_mtg5r")
@@ -21,12 +24,24 @@ animations = [{
 }]
 
 [node name="enemy_1" type="CharacterBody2D" unique_id=1610608409]
+z_index = 3
+script = ExtResource("1_mu3m1")
+footprint_scene = ExtResource("2_u6hx6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=140798166]
-shape = SubResource("RectangleShape2D_mu3m1")
+position = Vector2(-0.5, -1.5)
+shape = SubResource("RectangleShape2D_mtg5r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=232767398]
 position = Vector2(0, -17)
 sprite_frames = SubResource("SpriteFrames_u6hx6")
 animation = &"idle_south"
 autoplay = "idle_south"
+
+[node name="VisionRay" type="RayCast2D" parent="." unique_id=172462184]
+collision_mask = 3
+
+[node name="FootstepAudio" type="AudioStreamPlayer2D" parent="." unique_id=1230279099]
+stream = ExtResource("4_u6hx6")
+volume_db = -9.555
+pitch_scale = 1.49

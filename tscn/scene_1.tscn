@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://bgh8vs0p7ge0v" path="res://scripts/item_pickup.gd" id="9_ry4o7"]
 [ext_resource type="Texture2D" uid="uid://dyyht8iolkhns" path="res://sprite_objects/testbranch.png" id="11_3jp62"]
 [ext_resource type="AudioStream" uid="uid://kqp4cm13vc6g" path="res://audio/blizzard.mp3" id="13_l785s"]
+[ext_resource type="PackedScene" uid="uid://2vmat38kjij3" path="res://tscn/enemy_1.tscn" id="15_n4332"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xwki7"]
 texture = ExtResource("1_fj7yv")
@@ -123,7 +124,7 @@ footprints_parent_path = NodePath("../../Footprints")
 [node name="SnowFootsteps" type="AudioStreamPlayer2D" parent="Objects/CharacterBody2D" unique_id=1921661368]
 stream = ExtResource("4_ok673")
 volume_db = -9.96
-pitch_scale = 1.44
+pitch_scale = 1.5
 
 [node name="Node2D" parent="Objects" unique_id=694933948 instance=ExtResource("4_02smy")]
 position = Vector2(-175, 111)
@@ -201,3 +202,8 @@ autoplay = true
 
 [node name="Footprints" type="Node2D" parent="." unique_id=174872632]
 z_index = 1
+
+[node name="enemy_1" parent="." unique_id=1610608409 instance=ExtResource("15_n4332")]
+position = Vector2(-331, -42)
+snow_tilemap_path = NodePath("../TileMapLayer")
+footprints_parent_path = NodePath("../Footprints")

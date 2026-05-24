@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://qfgqawlaeoe4" path="res://sprite_objects/village_house1_off.png" id="1_q3skr"]
 [ext_resource type="Texture2D" uid="uid://dl7yw50uugyxn" path="res://sprite_objects/village_house1.png" id="2_fg7yn"]
-[ext_resource type="Script" uid="uid://bmvtarb4cwb8m" path="res://scripts/shelter.gd" id="3_shelter"]
+[ext_resource type="Script" path="res://scripts/shelter.gd" id="3_shelter"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_je1qb"]
 atlas = ExtResource("1_q3skr")
