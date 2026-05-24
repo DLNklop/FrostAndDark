@@ -1,0 +1,31 @@
+[gd_scene format=4 uid="uid://cmedkit123456"]
+
+[ext_resource type="Texture2D" uid="uid://bglpamya13cg" path="res://sprite_objects/snow_sprite.png" id="1_snow"]
+[ext_resource type="Script" uid="uid://d3k8p2m7x9q1w" path="res://scripts/item.gd" id="2_script"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pickup"]
+size = Vector2(20, 20)
+
+[node name="MedKitPickup" type="Node2D" unique_id=1000000002]
+script = ExtResource("2_script")
+item_id = "medkit"
+item_name = "Аптечка"
+amount = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.5, 0.5, 1)
+texture = ExtResource("1_snow")
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_pickup")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -30.0
+offset_right = 20.0
+offset_bottom = -10.0
+text = "🏥"
+horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER

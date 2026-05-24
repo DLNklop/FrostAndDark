@@ -1,0 +1,27 @@
+[gd_scene format=4 uid="uid://citem1234567"]
+
+[ext_resource type="Texture2D" uid="uid://bglpamya13cg" path="res://sprite_objects/snow_sprite.png" id="1_snow"]
+[ext_resource type="Script" uid="uid://d3k8p2m7x9q1w" path="res://scripts/item.gd" id="2_script"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pickup"]
+size = Vector2(20, 20)
+
+[node name="ItemPickup" type="Node2D" unique_id=1000000001]
+script = ExtResource("2_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_snow")
+scale = Vector2(0.5, 0.5)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_pickup")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -30.0
+offset_right = 20.0
+offset_bottom = -10.0
+text = "📦"
+horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER

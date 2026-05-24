@@ -75,6 +75,21 @@ var init_frames: int = 0
 var inventory: Array = []
 var max_inventory_slots: int = 8
 
+# === ЛЕЧЕНИЕ ===
+func add_health(amount: float) -> void:
+	health = min(health + amount, max_health)
+	emit_signal("health_changed", health)
+
+
+# === ИСПОЛЬЗОВАНИЕ АПТЕЧКИ ===
+func use_medkit() -> void:
+	if Inventory.has_item("medkit"):
+		add_health(30.0)
+		Inventory.remove_item("medkit", 1)
+		print("🏥 Аптечка использована! +30 HP")
+	else:
+		print("❌ Нет аптечки в инвентаре!")
+
 
 # === СИГНАЛЫ ===
 signal warmth_changed(new_warmth: float)
@@ -146,6 +161,10 @@ func _physics_process(delta: float) -> void:
 	
 	_update_footsteps_sound()
 	_update_footprints()
+	
+	# 4. ИСПОЛЬЗОВАНИЕ АПТЕЧКИ (клавиша H)
+	if Input.is_action_just_pressed("use_medkit"):
+		use_medkit()
 	
 	# ОТЛАДКА
 	if abs(input_horizontal) > 0 or abs(input_vertical) > 0:

@@ -202,6 +202,9 @@ func _start_battle_stub() -> void:
 	is_moving = false
 	
 	print("НАЧАЛАСЬ БОЁВКА С ENEMY1")
+	
+	# Запускаем систему боя
+	BattleSystem.start_battle(self, player.global_position)
 
 
 # === ЗВУК ШАГОВ ===
