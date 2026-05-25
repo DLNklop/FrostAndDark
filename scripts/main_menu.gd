@@ -1,5 +1,6 @@
 extends Control
 @export var menu_music_path: String = "res://audio/menu_music.mp3"
+@export var prologue_scene_path: String = "res://Prolog/tscn/PrologueUI.tscn"
 @export var game_scene_path: String = "res://tscn/scene_1.tscn"
 @export var background_path: String = "res://sprite_objects/menu_bg.png"
 
@@ -274,11 +275,19 @@ func _space(size: int) -> Control:
 
 func _on_play_pressed() -> void:
 	Inventory.clear_inventory()
+	var gs := get_node_or_null("/root/GameState")
+	if gs:
+		gs.reset_prologue()
 
 	if menu_music:
 		menu_music.stop()
 
-	get_tree().change_scene_to_file(game_scene_path)
+	var target := prologue_scene_path
+	if not ResourceLoader.exists(target):
+		push_warning("Пролог не найден, загрузка основной сцены: %s" % target)
+		target = game_scene_path
+
+	get_tree().change_scene_to_file(target)
 
 
 func _on_settings_pressed() -> void:

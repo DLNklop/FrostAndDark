@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://bwgqgm6yrgnxh"]
+[gd_scene load_steps=7 format=3 uid="uid://bwgqgm6yrgnxh"]
 
-[ext_resource type="Texture2D" uid="uid://c4xin7s57og6y" path="res://Prolog/sprite_objects/фон.png" id="1_6fvaj"]
-[ext_resource type="Script" uid="uid://d173yxf08jclu" path="res://Prolog/scripts/PrologueManager.gd" id="1_d4j14"]
-[ext_resource type="Script" uid="uid://8h6t5yo2equq" path="res://scripts/pause_menu.gd" id="3_pj23n"]
+[ext_resource type="Script" uid="uid://d173yxf08jclu" path="res://Prolog/scripts/PrologueManager.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://c4xin7s57og6y" path="res://Prolog/sprite_objects/фон.png" id="2_bg"]
+[ext_resource type="Script" uid="uid://8h6t5yo2equq" path="res://scripts/pause_menu.gd" id="3_pause"]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dkypl"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_snow"]
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(500, 0, 0)
@@ -13,124 +13,154 @@ gravity = Vector3(-400, 500, 0)
 scale_max = 1.5
 color = Color(0.7919991, 0.79199916, 0.7919991, 1)
 
-[sub_resource type="Gradient" id="Gradient_l785s"]
+[sub_resource type="Gradient" id="Gradient_light"]
 offsets = PackedFloat32Array(0, 0.208, 0.392, 0.488, 0.768, 0.784, 0.848, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0.46965814, 0.46965814, 0.46965814, 1, 0.39166668, 0.39166668, 0.39166668, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_6fvaj"]
-gradient = SubResource("Gradient_l785s")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_light"]
+gradient = SubResource("Gradient_light")
 width = 640
 height = 640
 fill = 1
 fill_from = Vector2(0.5013193, 0.49721488)
 
-[sub_resource type="Gradient" id="Gradient_xwki7"]
+[sub_resource type="Gradient" id="Gradient_soft"]
 offsets = PackedFloat32Array(0, 0.75238097, 0.9936508, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0.943415, 0.943415, 0.943415, 1, 0.9777778, 0.9777778, 0.9777778, 1, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_d4j14"]
-gradient = SubResource("Gradient_xwki7")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_soft"]
+gradient = SubResource("Gradient_soft")
 width = 640
 height = 360
 fill = 1
 fill_from = Vector2(0.4871795, 0.4957265)
 
-[node name="Control" type="Control" unique_id=607624621]
+[node name="PrologueUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_d4j14")
+script = ExtResource("1_script")
 
-[node name="Control" type="Control" parent="." unique_id=446964438]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Background" type="TextureRect" parent="Control" unique_id=1823857346]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_6fvaj")
+texture = ExtResource("2_bg")
 expand_mode = 1
+stretch_mode = 5
 
-[node name="MainBox" type="Panel" parent="Control" unique_id=259613869]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.147
-anchor_top = 0.224
-anchor_right = 0.81000006
-anchor_bottom = 0.61
-offset_left = 0.91999817
-offset_top = 0.3600006
-offset_right = -4.4000244
-offset_bottom = 1.3999939
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/MainBox" unique_id=1932423921]
+[node name="ContentRoot" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/default_color = Color(0.72156864, 0.7882353, 0.8509804, 1)
-bbcode_enabled = true
-text = "Метель усиливается. Холод пробирает до костей. Куда пойти?"
 
-[node name="ChoicesBox" type="VBoxContainer" parent="Control" unique_id=250434334]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 233.0
-offset_right = 642.0
-offset_bottom = 356.0
+[node name="CenterColumn" type="VBoxContainer" parent="ContentRoot"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/separation = 10
+alignment = 1
 
-[node name="Button" type="Button" parent="Control/ChoicesBox" unique_id=2092593180]
+[node name="MainBox" type="Panel" parent="ContentRoot/CenterColumn"]
+clip_contents = true
+custom_minimum_size = Vector2(600, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Button2" type="Button" parent="Control/ChoicesBox" unique_id=902784751]
+[node name="PanelBg" type="ColorRect" parent="ContentRoot/CenterColumn/MainBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.039215688, 0.05490196, 0.09019608, 0.88)
+
+[node name="TextCenter" type="CenterContainer" parent="ContentRoot/CenterColumn/MainBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 12.0
+offset_right = -16.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ContentRoot/CenterColumn/MainBox/TextCenter"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0.72156864, 0.7882353, 0.8509804, 1)
+theme_override_constants/line_separation = 4
+theme_override_font_sizes/normal_font_size = 17
+custom_minimum_size = Vector2(568, 0)
+bbcode_enabled = false
+autowrap_mode = 3
+scroll_active = false
+fit_content = true
 
-[node name="Button3" type="Button" parent="Control/ChoicesBox" unique_id=478979043]
+[node name="ChoicesBox" type="VBoxContainer" parent="ContentRoot/CenterColumn"]
+visible = false
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/separation = 6
+alignment = 1
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=210272921]
+[node name="ChoiceButton1" type="Button" parent="ContentRoot/CenterColumn/ChoicesBox"]
+visible = false
+custom_minimum_size = Vector2(600, 52)
+layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasLayer" unique_id=1642048384]
-position = Vector2(651, -226)
+[node name="ChoiceButton2" type="Button" parent="ContentRoot/CenterColumn/ChoicesBox"]
+visible = false
+custom_minimum_size = Vector2(600, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ChoiceButton3" type="Button" parent="ContentRoot/CenterColumn/ChoicesBox"]
+visible = false
+custom_minimum_size = Vector2(600, 52)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+layer = 0
+script = ExtResource("3_pause")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="CanvasLayer"]
+position = Vector2(320, -40)
 amount = 800
 lifetime = 1.66
 visibility_rect = Rect2(-500, -100, 1000, 1000)
-process_material = SubResource("ParticleProcessMaterial_dkypl")
+process_material = SubResource("ParticleProcessMaterial_snow")
 
-[node name="PointLight2D" type="PointLight2D" parent="CanvasLayer" unique_id=1939660558]
-position = Vector2(312, 183.50003)
-scale = Vector2(2.3782465, 1.6132306)
+[node name="PointLight2D" type="PointLight2D" parent="CanvasLayer"]
+position = Vector2(300, 170)
+scale = Vector2(2.2, 1.4)
 blend_mode = 1
 shadow_enabled = true
-texture = SubResource("GradientTexture2D_6fvaj")
+texture = SubResource("GradientTexture2D_light")
 texture_scale = 0.77
 
-[node name="PointLight2D2" type="PointLight2D" parent="CanvasLayer" unique_id=1031640467]
-position = Vector2(320, 180)
+[node name="PointLight2D2" type="PointLight2D" parent="CanvasLayer"]
+position = Vector2(320, 175)
 blend_mode = 1
 range_layer_min = 1
 range_layer_max = 1
-texture = SubResource("GradientTexture2D_d4j14")
-
-[node name="PauseMenu" type="CanvasLayer" parent="." unique_id=1631290685]
-layer = 0
-script = ExtResource("3_pj23n")
+texture = SubResource("GradientTexture2D_soft")
